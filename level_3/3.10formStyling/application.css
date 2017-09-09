@@ -1,0 +1,16 @@
+/*    Give the defined classes in your css colors. See the magic
+of ng-invalid/ng-valid at work!*/
+
+/*For elements with both the .ng-invalid and .ng-dirty classes,
+give the border-color of red.*/
+
+.ng-invalid.ng-dirty {
+  border-color: red;
+}
+
+/*For ng-valid && ng-dirty, give a green border-color.*/
+
+.ng-valid.ng-dirty {
+  border-color: green;
+}
+

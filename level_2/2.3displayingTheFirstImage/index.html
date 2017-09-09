@@ -1,0 +1,31 @@
+<!--We've added images to all products as well – like any self
+respecting store should have. A product has an array of images
+we can use in our HTML. Let's get the first image to show on the page!-->
+
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body ng-controller="StoreController as store">
+    <!--  Products Container  -->
+    <div class="list-group">
+      <!--  Product Container  -->
+      <div class="list-group-item" ng-repeat="product in store.products">
+        <h3>
+          {{product.name}}
+          <em class="pull-right">{{product.price | currency}}</em>
+        </h3>
+        <!-- Image Gallery  -->
+        <div class="gallery">
+          
+          <!--We want to display the first full-sized image for each
+            product. Can you figure out how?-->
+          <img ng-src="{{product.images[0]}}"/>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

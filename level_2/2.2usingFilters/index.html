@@ -1,0 +1,25 @@
+<!--In the previous challenge we practiced displaying the prices
+of gems in our index.html. The first gem, Azurite, now costs $110.50
+(due to supply shortages) but our current code doesn't display the
+price correctly.-->
+
+
+
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body class="container" ng-controller="StoreController as store">
+    <div class="product row" ng-repeat="product in store.products">
+      <h3>
+        {{product.name}}
+        
+        <!--Use an Angular filter to display the price as a currency.-->
+        <em class="pull-right">{{product.price | currency}}</em>
+      </h3>
+    </div>
+  </body>
+</html>

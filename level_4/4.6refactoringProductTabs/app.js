@@ -1,3 +1,5 @@
+/*We feel like the Product Tabs section could be better managed if it were a directive.*/
+
 (function() {
   var app = angular.module('gemStore', []);
 
@@ -11,13 +13,23 @@
   app.controller('StoreController', function() {
     this.products = gems;
   });
+  
+  //Now remove the product tabs section from index.html and the TabController from app.js.
 
   
-
+//Create an element directive called productTabs.
   app.directive("productTabs", function() {
   return {
     restrict: "E",
+    
+    /*Tell your new directive to use the product-tabs.html
+    template with the templateUrl attribute.*/
     templateUrl: "product-tabs.html",
+    
+    /*Give our productTabs directive all the tab
+    functionality that is currently inside our TabController.
+    Make sure that you do not delete the TabController yet. We 
+    don't want to break the site.*/
     controller: function() {
        this.tab = 1;
 
@@ -29,6 +41,10 @@
          this.tab = activeTab;
        };
     },
+    
+    /*Add the controllerAs attribute to your directive setting
+    it to tab so the directive knows what all the references to
+    tab in product-tabs.html are.*/
     controllerAs: "tab"
   };
 });

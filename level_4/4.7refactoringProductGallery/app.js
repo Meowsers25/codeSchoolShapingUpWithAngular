@@ -1,21 +1,36 @@
+//Now that we've separated the Product Tabs, why not separate the Gallery too?
+
 (function() {
   var app = angular.module('gemStore', []);
 
-  
+ //Create an element directive called productGallery. 
 app.directive('productGallery', function() {
   return {
     restrict: 'E',
+    
+    /*Tell your new directive to use the product-gallery.html
+    template with the templateUrl attribute.*/
     templateUrl: 'product-gallery.html',
+    
+    /*Give our productGallery directive all the gallery functionality
+    that is currently inside our GalleryController. Make sure that you
+    do not delete the GalleryController yet. We don't want to break the site.*/
     controller: function() {
       this.current = 0;
       this.setCurrent = function(imageNumber) {
         this.current = imageNumber || 0;
       };
     },
+    
+    /*Add the controllerAs attribute to your directive
+    setting it to gallery so the directive knows what all the 
+    references to gallery in product-gallery.html are.*/
     controllerAs: 'gallery'
   };
 });
   
+//Now remove the image gallery div from index.html and the GalleryController from app.js.
+
 
   app.controller('StoreController', function() {
     this.products = gems;
